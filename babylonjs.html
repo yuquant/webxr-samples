@@ -104,7 +104,7 @@
                     window.engine = await asyncEngineCreation();
         if (!engine) throw 'engine should not be null.';
         startRenderLoop(engine, canvas);
-        window.scene = createScene();};
+        window.scene = createScene();
         initFunction().then(() => {sceneToRender = scene                    
         });
 
