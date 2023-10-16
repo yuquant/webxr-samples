@@ -45,7 +45,7 @@
         </style>
     </head>
 <body>
-<button id="entervr">EnterVR</button>
+<!--<button id="entervr">EnterVR</button>-->
 <div id="canvasZone"><canvas id="renderCanvas"></canvas></div>
 
     <script>
@@ -109,27 +109,7 @@
         window.addEventListener("resize", function () {
             engine.resize();
         });
-
-        scene.actionManager = new BABYLON.ActionManager(scene);
-
-        // From 2D view to fullscreen VR
-        scene.actionManager.registerAction(
-        new BABYLON.ExecuteCodeAction({
-                trigger: document.getElementById("entervr").click(),
-                // trigger: BABYLON.ActionManager.OnKeyDownTrigger,
-                // parameter: 's' //press "s" key
-            },
-            function () { vrHelper.enterVR(); }
-        ));
-
-        // From fullscreenVR to 2D view
-        scene.actionManager.registerAction(
-        new BABYLON.ExecuteCodeAction({
-                trigger: BABYLON.ActionManager.OnKeyDownTrigger,
-                parameter: 'e' //press "e" key
-            },
-            function () { vrHelper.exitVR(); document.exitFullscreen();}
-        ));
+        vrHelper = scene.createDefaultVRExperience();
 
     </script>
 </body>
